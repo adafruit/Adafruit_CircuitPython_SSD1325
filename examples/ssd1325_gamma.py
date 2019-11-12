@@ -5,7 +5,6 @@ import adafruit_ssd1325
 
 displayio.release_displays()
 
-# This pinout works on a Metro and may need to be altered for other boards.
 spi = board.SPI()
 oled_cs = board.D5
 oled_dc = board.D6
