@@ -35,7 +35,7 @@ display.show(splash)
 
 color_bitmap = displayio.Bitmap(display.width, display.height, 1)
 color_palette = displayio.Palette(1)
-color_palette[0] = 0x888888 # White
+color_palette[0] = 0xFFFFFF # White
 
 bg_sprite = displayio.TileGrid(color_bitmap,
                                pixel_shader=color_palette,
@@ -53,7 +53,7 @@ splash.append(inner_sprite)
 
 # Draw a label
 text = "Hello World!"
-text_area = label.Label(terminalio.FONT, text=text, color=0xFFFFFF)
+text_area = label.Label(terminalio.FONT, text=text, color=0x888888)
 text_width = text_area.bounding_box[2] * FONTSCALE
 text_group = displayio.Group(max_size=10, scale=FONTSCALE, x=display.width // 2 - text_width // 2,
                              y=display.height // 2)

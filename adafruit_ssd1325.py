@@ -49,7 +49,7 @@ __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_SSD1325.git"
 
 _INIT_SEQUENCE = (
     b"\xAE\x00"      # DISPLAY_OFF
-    b"\xb3\x01\xf1"  # Set clock
+    b"\xb3\x01\xa1"  # Set clock
     b"\xa8\x01\x3f"  # Mux ratio is 1/64
     b"\xa1\x01\x00"      # Display start line is 0
     b"\xa2\x01\x4c"      # Display offset is 0
@@ -62,6 +62,7 @@ _INIT_SEQUENCE = (
     b"\xb1\x01\x55"  # Set phase length
     b"\xb4\x01\x02"  # Set pre-charge comp
     b"\xb0\x01\x28"  # Set pre-charge comp enable
+    b"\xbc\x01\x3f"  # Set pre-charge voltage
     b"\xbe\x01\x1c"  # Set vcom voltage
     b"\xbf\x01\x0f"  # set Low Voltage Level of SEG Pin
     b"\xa4\x00"      # Normal display
