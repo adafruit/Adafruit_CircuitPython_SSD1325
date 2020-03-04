@@ -10,8 +10,9 @@ oled_cs = board.D5
 oled_dc = board.D6
 oled_reset = board.D9
 
-display_bus = displayio.FourWire(spi, command=oled_dc, chip_select=oled_cs, reset=oled_reset,
-                                 baudrate=1000000)
+display_bus = displayio.FourWire(
+    spi, command=oled_dc, chip_select=oled_cs, reset=oled_reset, baudrate=1000000
+)
 time.sleep(1)
 display = adafruit_ssd1325.SSD1325(display_bus, width=128, height=64)
 
@@ -27,7 +28,7 @@ pixels_per_step = dimension // color_count
 for i in range(dimension):
     if i % pixels_per_step == 0:
         continue
-    gamma_pattern[i,i] = i // pixels_per_step
+    gamma_pattern[i, i] = i // pixels_per_step
 
 for i in range(color_count):
     component = i * 255 // (color_count - 1)
