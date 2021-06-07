@@ -36,7 +36,7 @@ _INIT_SEQUENCE = (
     b"\xa8\x01\x3f"  # Mux ratio is 1/64
     b"\xa1\x01\x00"  # Display start line is 0
     b"\xa2\x01\x4c"  # Display offset is 0
-    b"\xad\x01\x02"  # set master config
+    b"\xad\x01\x02"  # set main config
     b"\xa0\x01\x50"  # remap memory
     b"\x86\x00"  # set current
     b"\xb8\x08\x01\x11\x22\x32\x43\x54\x65\x76"  # Set graytable
