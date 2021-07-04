@@ -34,7 +34,7 @@ FONTSCALE = 1
 display = adafruit_ssd1325.SSD1325(display_bus, width=WIDTH, height=HEIGHT)
 
 # Make the display context
-splash = displayio.Group(max_size=10)
+splash = displayio.Group()
 display.show(splash)
 
 color_bitmap = displayio.Bitmap(display.width, display.height, 1)
@@ -60,7 +60,6 @@ text = "Hello World!"
 text_area = label.Label(terminalio.FONT, text=text, color=0x888888)
 text_width = text_area.bounding_box[2] * FONTSCALE
 text_group = displayio.Group(
-    max_size=10,
     scale=FONTSCALE,
     x=display.width // 2 - text_width // 2,
     y=display.height // 2,
