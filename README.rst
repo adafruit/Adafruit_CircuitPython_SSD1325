@@ -15,12 +15,11 @@ Introduction
 
 DisplayIO driver for grayscale OLEDs drive by SSD1325
 
-
 Dependencies
 =============
 This driver depends on:
 
-* `Adafruit CircuitPython (version 5+) <https://github.com/adafruit/circuitpython>`_
+* `Adafruit CircuitPython <https://github.com/adafruit/circuitpython>`_
 
 Please ensure all dependencies are available on the CircuitPython filesystem.
 This is easily achieved by downloading
@@ -28,8 +27,6 @@ This is easily achieved by downloading
 
 Installing from PyPI
 =====================
-.. note:: This library is not available on PyPI yet. Install documentation is included
-   as a standard element. Stay tuned for PyPI availability!
 
 On supported GNU/Linux systems like the Raspberry Pi, you can install the driver locally `from
 PyPI <https://pypi.org/project/adafruit-circuitpython-ssd1325/>`_. To install for current user:
@@ -87,4 +84,5 @@ before contributing to help this project stay welcoming.
 Documentation
 =============
 
-For information on building library documentation, please check out `this guide <https://learn.adafruit.com/creating-and-sharing-a-circuitpython-library/sharing-our-docs-on-readthedocs#sphinx-5-1>`_.
+For information on building library documentation, please check out `this guide
+<https://learn.adafruit.com/creating-and-sharing-a-circuitpython-library/sharing-our-docs-on-readthedocs#sphinx-5-1>`_.
