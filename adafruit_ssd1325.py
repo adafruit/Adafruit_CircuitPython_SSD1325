@@ -54,7 +54,14 @@ _INIT_SEQUENCE = (
 
 # pylint: disable=too-few-public-methods
 class SSD1325(displayio.Display):
-    """SSD1325 driver"""
+    """
+    SSD1325 driver
+
+    :param int width: The width of the display
+    :param int height: The height of the display
+    :param int rotation: The rotation of the display in degrees. Default is 0. Must be one of
+        (0, 90, 180, 270)
+    """
 
     def __init__(self, bus, **kwargs):
         # Patch the init sequence for 32 pixel high displays.
@@ -71,7 +78,6 @@ class SSD1325(displayio.Display):
             grayscale=True,
             set_column_command=0x15,
             set_row_command=0x75,
-            set_vertical_scroll=0xD3,
             data_as_commands=True,
             brightness_command=0x81,
             single_byte_bounds=True,
