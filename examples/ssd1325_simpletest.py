@@ -8,6 +8,7 @@ background, a smaller black rectangle, and some white text.
 
 import board
 import displayio
+import fourwire
 import terminalio
 from adafruit_display_text import label
 import adafruit_ssd1325
@@ -18,7 +19,7 @@ displayio.release_displays()
 spi = board.SPI()
 oled_cs = board.D5
 oled_dc = board.D6
-display_bus = displayio.FourWire(
+display_bus = fourwire.FourWire(
     spi, command=oled_dc, chip_select=oled_cs, baudrate=1000000, reset=board.D9
 )
 
@@ -36,7 +37,7 @@ display = adafruit_ssd1325.SSD1325(display_bus, width=WIDTH, height=HEIGHT)
 
 # Make the display context
 splash = displayio.Group()
-display.show(splash)
+display.root_group = splash
 
 color_bitmap = displayio.Bitmap(display.width, display.height, 1)
 color_palette = displayio.Palette(1)
