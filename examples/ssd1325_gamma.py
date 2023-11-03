@@ -4,6 +4,7 @@
 import time
 import board
 import displayio
+import fourwire
 import adafruit_ssd1325
 
 displayio.release_displays()
@@ -13,7 +14,7 @@ oled_cs = board.D5
 oled_dc = board.D6
 oled_reset = board.D9
 
-display_bus = displayio.FourWire(
+display_bus = fourwire.FourWire(
     spi, command=oled_dc, chip_select=oled_cs, reset=oled_reset, baudrate=1000000
 )
 time.sleep(1)
@@ -40,6 +41,6 @@ for i in range(color_count):
 
 g.append(t)
 
-display.show(g)
+display.root_group = g
 
 time.sleep(10)
