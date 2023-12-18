@@ -8,10 +8,21 @@ background, a smaller black rectangle, and some white text.
 
 import board
 import displayio
-import fourwire
 import terminalio
 from adafruit_display_text import label
 import adafruit_ssd1325
+
+# Support both 8.x.x and 9.x.x. Change when 8.x.x is discontinued as a stable release.
+try:
+    from fourwire import FourWire
+except ImportError:
+    from displayio import FourWire
+
+# Use for I2C
+# try:
+#     from i2cdisplaybus import I2CDisplayBus
+# except ImportError:
+#     from displayio import I2CDisplayBus
 
 displayio.release_displays()
 
@@ -19,14 +30,14 @@ displayio.release_displays()
 spi = board.SPI()
 oled_cs = board.D5
 oled_dc = board.D6
-display_bus = fourwire.FourWire(
+display_bus = FourWire(
     spi, command=oled_dc, chip_select=oled_cs, baudrate=1000000, reset=board.D9
 )
 
 # Use for I2C
 # i2c = board.I2C()  # uses board.SCL and board.SDA
 # i2c = board.STEMMA_I2C()  # For using the built-in STEMMA QT connector on a microcontroller
-# display_bus = displayio.I2CDisplay(i2c, device_address=0x3c)
+# display_bus = I2CDisplayBus(i2c, device_address=0x3c)
 
 WIDTH = 128
 HEIGHT = 64

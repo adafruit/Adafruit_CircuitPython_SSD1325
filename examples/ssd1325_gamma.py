@@ -4,8 +4,13 @@
 import time
 import board
 import displayio
-import fourwire
 import adafruit_ssd1325
+
+# Support both 8.x.x and 9.x.x. Change when 8.x.x is discontinued as a stable release.
+try:
+    from fourwire import FourWire
+except ImportError:
+    from displayio import FourWire
 
 displayio.release_displays()
 
@@ -14,7 +19,7 @@ oled_cs = board.D5
 oled_dc = board.D6
 oled_reset = board.D9
 
-display_bus = fourwire.FourWire(
+display_bus = FourWire(
     spi, command=oled_dc, chip_select=oled_cs, reset=oled_reset, baudrate=1000000
 )
 time.sleep(1)
