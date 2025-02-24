@@ -10,19 +10,12 @@ import board
 import displayio
 import terminalio
 from adafruit_display_text import label
-import adafruit_ssd1325
-
-# Support both 8.x.x and 9.x.x. Change when 8.x.x is discontinued as a stable release.
-try:
-    from fourwire import FourWire
-except ImportError:
-    from displayio import FourWire
+from fourwire import FourWire
 
 # Use for I2C
-# try:
-#     from i2cdisplaybus import I2CDisplayBus
-# except ImportError:
-#     from displayio import I2CDisplayBus
+from i2cdisplaybus import I2CDisplayBus
+
+import adafruit_ssd1325
 
 displayio.release_displays()
 
@@ -30,9 +23,7 @@ displayio.release_displays()
 spi = board.SPI()
 oled_cs = board.D5
 oled_dc = board.D6
-display_bus = FourWire(
-    spi, command=oled_dc, chip_select=oled_cs, baudrate=1000000, reset=board.D9
-)
+display_bus = FourWire(spi, command=oled_dc, chip_select=oled_cs, baudrate=1000000, reset=board.D9)
 
 # Use for I2C
 # i2c = board.I2C()  # uses board.SCL and board.SDA
@@ -58,14 +49,10 @@ bg_sprite = displayio.TileGrid(color_bitmap, pixel_shader=color_palette, x=0, y=
 splash.append(bg_sprite)
 
 # Draw a smaller inner rectangle
-inner_bitmap = displayio.Bitmap(
-    display.width - BORDER * 2, display.height - BORDER * 2, 1
-)
+inner_bitmap = displayio.Bitmap(display.width - BORDER * 2, display.height - BORDER * 2, 1)
 inner_palette = displayio.Palette(1)
 inner_palette[0] = 0x000000  # Black
-inner_sprite = displayio.TileGrid(
-    inner_bitmap, pixel_shader=inner_palette, x=BORDER, y=BORDER
-)
+inner_sprite = displayio.TileGrid(inner_bitmap, pixel_shader=inner_palette, x=BORDER, y=BORDER)
 splash.append(inner_sprite)
 
 # Draw a label
