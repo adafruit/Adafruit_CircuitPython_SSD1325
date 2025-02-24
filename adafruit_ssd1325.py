@@ -25,26 +25,22 @@ Implementation Notes
 
 """
 
+from busdisplay import BusDisplay
+
 try:
     from typing import Union
+
+    from fourwire import FourWire
+    from i2cdisplaybus import I2CDisplayBus
 except ImportError:
     pass
 
-# Support both 8.x.x and 9.x.x. Change when 8.x.x is discontinued as a stable release.
-try:
-    from fourwire import FourWire
-    from busdisplay import BusDisplay
-    from i2cdisplaybus import I2CDisplayBus
-except ImportError:
-    from displayio import FourWire
-    from displayio import Display as BusDisplay
-    from busio import I2C as I2CDisplayBus
 
 __version__ = "0.0.0+auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_SSD1325.git"
 
 _INIT_SEQUENCE = (
-    b"\xAE\x00"  # DISPLAY_OFF
+    b"\xae\x00"  # DISPLAY_OFF
     b"\xb3\x01\xa1"  # Set clock
     b"\xa8\x01\x3f"  # Mux ratio is 1/64
     b"\xa1\x01\x00"  # Display start line is 0

@@ -2,15 +2,12 @@
 # SPDX-License-Identifier: MIT
 
 import time
+
 import board
 import displayio
-import adafruit_ssd1325
+from fourwire import FourWire
 
-# Support both 8.x.x and 9.x.x. Change when 8.x.x is discontinued as a stable release.
-try:
-    from fourwire import FourWire
-except ImportError:
-    from displayio import FourWire
+import adafruit_ssd1325
 
 displayio.release_displays()
 
